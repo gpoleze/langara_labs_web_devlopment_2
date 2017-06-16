@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Invoice</title>
+    <!--[if lt IE 9]>
+    	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script defer type="text/javascript" src="http://api.b246b.ca/scripts/langara.js"></script>
+    <script defer type="text/javascript" src="invoice.js"></script>
+
+</head>
+
+<body>
+
+    <h1>Total Price</h1>
+
+    <p>
+        Add the items you want
+        <br>
+        <table>
+            <tr>
+                <td>
+                    <label for="name">Item name: </label>
+                </td>
+                <td>
+                    <input type="text" id="name">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="price">Price: </label>
+                </td>
+                <td>
+                    <input type="text" id="price">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="quantity">Quantity: </label>
+                </td>
+                <td>
+                    <input type="text" id="quantity">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="tax">Sales tax: </label>
+                </td>
+                <td>
+                    <input type="text" id="tax">
+                </td>
+            </tr>
+
+        </table>
+        <input type="button" value="Calculate!" id="Calculate">
+    </p>
+
+    <p id="answer"></p>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Gabriel Poleze Ferreira">
+    <meta name="description" content="CPSC2030 Lab11">
+
+    <title>Lab 11</title>
+    <script type="text/javascript" src="http://api.b246b.ca/scripts/langara.js" defer>
+    </script>
+    <script type="text/javascript" src="triangle.js" defer></script>
+
+    <style>
+        body {
+            background-color: lightblue;
+        }
+        
+        div {
+            background-color: white;
+            width: 45vw;
+            height: 50vw;
+            margin: 10px auto;
+            overflow: auto;
+            padding: 5px;
+        }
+        
+        textarea {
+            overflow: auto;
+            padding: 0;
+            margin: 0 auto;
+            border: 2px solid lightgray;
+            width: 80%;
+            height: 75%;
+        }
+        
+        textAreaDiv {
+            margin: auto;
+        }
+        
+        .floatRight {
+            float: right;
+        }
+        
+        .floatLeft {
+            float: left;
+        }
+        
+        li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lab 11</h1>
+    <h2>Draw triangles</h2>
+
+    <fieldset>
+        <label>
+            Size:
+            <input type="text" id="size">
+        </label>
+
+        <br>
+        <label>
+            First Row Symbol:
+            <select id="firstSymbol">
+                <option value="@">@</option>
+                <option value="#">#</option>
+                <option value="$">$</option>
+                <option value="%">%</option>
+                <option value="*">*</option>
+            </select>
+        </label>
+
+
+        <label>
+            First Row Symbol:
+            <input type="text" id="secondSymbol" size="1" maxlength="1" value="g">
+        </label>
+
+        <br>
+        <label>
+            Draw Upside Down:
+            <input type="checkbox" id="drawOrder" value="true">
+        </label>
+
+        <input type="button" id="draw" value="Draw!">
+    </fieldset>
+
+
+
+    <br>
+    <div class="floatLeft">
+        <h3>Pre</h3>
+        <pre id="output"></pre>
+    </div>
+
+    <div class="floatRight textAreaDiv">
+        <h3>Text Area</h3>
+        <textarea id="textAreaOutput"></textarea>
+    </div>
+
+    <div class="floatLeft">
+        <h3>Div</h3>
+        <div id="divOutput">
+        </div>
+    </div>
+
+    <div class="floatRight">
+        <h3>Unordered List</h3>
+        <ul id="ulOutput"></ul>
+    </div>
+
+
+
+</body>
+
+</html>

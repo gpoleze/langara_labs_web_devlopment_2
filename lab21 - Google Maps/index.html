@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lab 21 :: Google Maps</title>
+
+    <!--  jQuery  -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+
+    <!--  Map relaed scripts  -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpvpEowzGQQd2YAnhtXlproQ5ASsXwf8g" type="text/javascript"></script>
+
+    <!--  General Scripting  -->
+    <script type="text/javascript" src="script.js"></script>
+
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+        
+        #map {
+            height: 50%;
+            width: 50vw;
+            max-width: 500px;
+            min-width: 320px;
+            min-height: 320px;
+            margin: 0 auto;
+        }
+        
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #form1 {
+            margin: 0 auto;
+            padding: 0 5vw;
+        }
+        .centerElement{
+            text-align: center;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <h1>Lab 21 - Google Maps</h1>
+
+    <div id="map"></div>
+
+
+    <div id="form1">
+
+        <table class="table">
+            <thead id="tableHeadears">
+                <tr>
+                    <th>Nest Number</th>
+                    <th>Nest Colour</th>
+                    <th>Type</th>
+                    <th class="centerElement">
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <input type="button" value="Select" id="select" class="btn btn-primary">
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+
+
+            <tbody id="outputTable"></tbody>
+
+        </table>
+
+    </div>
+
+</body>
+
+</html>

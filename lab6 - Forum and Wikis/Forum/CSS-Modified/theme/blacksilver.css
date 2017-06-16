@@ -1,0 +1,129 @@
+/* my css
+---------------------------------- */
+
+.navbar a:link			{ color: #FAFAFA; }
+.navbar a:visited		{ color: #FAFAFA; }
+.navbar a:hover			{ color: #FAFAFA; }
+.navbar a:active		{ color: #FAFAFA; }
+
+.copyright a:link		{ color: #555; }
+.copyright a:visited	{ color: #555; }
+.copyright a:hover		{ color: #555; }
+.copyright a:active		{ color: #555; }
+
+#black_silver_wrap {
+	background-color: #fafafa;
+	margin: 0px auto;
+	width: 79%;
+	padding: 16px;
+	box-shadow: 0 -1px 6px 2px rgba(2, 2, 2, 0.7);
+	clear: both;
+}
+
+/* header-top */
+.silver-image-wrapper {
+	box-shadow: 0 0 6px 2px rgba(2, 2, 2, 0.7);
+	display: block;
+	margin: 0 auto -5px;
+	position: relative;
+	width: 81% !important;
+}
+
+#black-top {
+	border-top: 48px solid #3f3f3f;
+	margin-left: -5px;
+	margin-right: -5px;
+	margin-top: -24px;
+}
+
+/* black-silver responsiv */
+@media (max-width: 650px) {
+#black_silver_wrap {
+	width: 90%;
+	margin-top: -5px;
+}
+}
+
+@media (max-width: 768px) {
+#black_silver_wrap {
+	width: 90%;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	#black_silver_wrap {
+	background-color: transparent;
+	padding: 12px;
+	margin: 1px auto;
+	width: auto;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 895px) {
+	#black_silver_wrap{
+	background-color: transparent;
+	margin: 0px auto;
+	padding: 6px;
+	width: 98%;
+	}
+
+.silver-image-wrapper {
+	margin: -5px auto 18px;
+	width: 99.8% !important;
+}
+
+h1 {
+	margin-top: 0;
+}
+}
+
+@media (max-width: 1220px) {
+.navbar {
+	margin-left: -12px;
+	margin-right: -12px;
+	}
+
+.headerbar {
+	margin-left: -12px;
+	margin-right: -12px;
+	}
+
+#wrap {
+	margin-bottom: 10px;
+}
+}
+
+@media (max-width: 650px) {
+.silver-image-wrapper {
+	margin: 0 auto -5px;
+	width: 99.8% !important;
+}
+}
+
+@media (min-width: 768px) and (max-width: 1400px) {
+.silver-image-wrapper {
+margin: 0 auto -5px;
+}
+}
+
+@media (min-width: 650px) and (max-width: 768px) {
+.silver-image-wrapper {
+	margin: 0 auto -5px;
+	width: 99.8% !important;
+}
+}
+
+@media (min-width: 650px) and (max-width: 700px) {
+ul.topiclist dt .list-inner {
+	margin-right: 9px;
+	min-height: 28px;
+}
+
+.responsive-show {
+	display: block !important;
+}
+
+li.row .responsive-show strong {
+	color: transparent;
+}
+}

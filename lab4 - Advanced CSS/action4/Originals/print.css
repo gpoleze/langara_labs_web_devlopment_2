@@ -1,0 +1,54 @@
+#sub-frame-error > div.icon.icon-generic {
+    display: none;
+}
+
+.description {
+    text-align: center;
+}
+
+#sidebar {
+    display: none;
+}
+
+#main {
+    width: 100%;
+}
+
+#outer-wrapper {
+    border: none;
+}
+
+#Blog1 > div.blog-posts.hfeed > div > div > div > div.post.hentry.uncustomized-post-template > h3 {
+    text-decoration: underline;
+    margin: 1em 0;
+    font-family: Comic Sans MS;
+}
+
+.separator::first-line {
+/*    font-family: monospace;*/
+    font-variant-caps: all-small-caps;
+    /*I reaaly dont know what kind of font it has in the example. This was the one that I found closer to it.*/
+}
+
+.separator::first-letter {
+    color: red;
+    font-size: 3em;
+}
+
+#linkwithin_inner {
+    display: none;
+}
+
+#blog-pager,
+.post-feeds {
+    display: none;
+}
+
+@page {
+    size: auto;
+    margin: 0;
+}
+
+#footer-wrapper::after {
+    content: "Page dowloaded Jan 16, 2017 from http://flowerandweeds.blogspot.ca/ and the modified by Gabriel Poleze Ferreira";
+}

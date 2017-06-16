@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Pizza Order</title>
+    <style>
+        .flashy {
+            font-size: larger;
+            color: pink;
+        }
+        
+        #inputZone {
+            float: left;
+        }
+        
+        #outputZone {
+            float: right;
+            width: 25%;
+        }
+    </style>
+    <script defer type="text/javascript" src="http://api.b246b.ca/scripts/langara.js"></script>
+    <script defer type="text/javascript" src="pizza.js"></script>
+</head>
+
+<body>
+
+    <h1>Order your Pizza</h1>
+
+    <div id="inputZone">
+        <h2>Register</h2>
+
+        <p>
+            Username:
+            <input type="text" name="uname" id="uname">
+            <br> Password:
+            <input type="password" name="pass" id="pass">
+            <br>
+        </p>
+
+        <h2>Delivery Instructions</h2>
+
+        <p> Here you could help us to delivery faster your pizza giving us some instructions:
+            <br>
+            <textarea name="instructions" cols="80" rows="5" id="instructions" placeholder="type your instructions here"></textarea>
+        </p>
+
+
+        <h2>Size of the Pizza</h2>
+        <p> Which size do you prefer your pizza?
+            <br>
+            <select name="size" id="size">
+                <option value="Large" selected="selected">Large</option>
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+            </select>
+        </p>
+
+        <h2>Toppings</h2>
+
+        <p> Which toppings do you want?
+            <br>
+            <input type="checkbox" name="cheese" id="cheese"> Extra Cheese
+            <br>
+            <input type="checkbox" name="pepperoni" id="pepperoni"> Pepperoni
+            <br>
+            <input type="checkbox" name="mushrooms" id="mushrooms"> Mushrooms
+            <br>
+            <input type="checkbox" name="peppers" id="peppers"> Green Peppers
+            <br>
+        </p>
+
+
+        <p>
+            <input type="button" value="Buy!" id="buyButton">
+        </p>
+    </div>
+    <div id="outputZone">
+        <h2>Your order is ...</h2>
+        <p id="order">
+        </p>
+
+    </div>
+
+</body>
+
+</html>

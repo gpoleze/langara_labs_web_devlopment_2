@@ -1,0 +1,30 @@
+ -- Part 1
+ -- .d
+ 
+insert into dvds (title, duration) values
+	 ('Moonlight (2016)',111)
+	,('Zootopia (2016)',110)
+	,('Hell or High Water (2016)',103)
+	,('Manchester by the Sea (2016)',137)
+	,('Arrival (2016)',118)
+	,('La La Land (2016)',128)
+	,('The Jungle Book (2016)',111)
+	,('Love & Friendship (2016)',93)
+	,('Finding Dory (2016)',100)
+	,('Kubo and the Two Strings (2016)',102)
+	,('Things to Come (L\'avenir) (2016)',102)
+	,('Hunt for the Wilderpeople (2016)',101)
+	,('Moana (2016)',113)
+	,('Paterson (2016)',118)
+	,('Captain America: Civil War (2016)',147)
+	,('Don\' Think Twice (2016)',92)
+	,('Sing Street (2016)',106)
+	,('Tower (2016)',98)
+	,('Weiner (2016)',96)
+	,('Little Men (2016)',90)
+	,('The Nice Guys (2016)',116)
+	,('Cameraperson (2016)',103)
+	,('Eye In The Sky (2016)',103)
+	,('Embrace Of The Serpent (El Abrazo De La Serpiente) (2016)',125)
+	,('Only Yesterday (2016)',119)
+	;

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Lab 12: JavaScript: Form Validation</title>
+    <script defer type="text/javascript" src="http://api.b246b.ca/scripts/langara.js"></script>
+    <script defer type="text/javascript" src="example2.js"></script>
+</head>
+
+<body>
+
+    <h1>Lab 12: JavaScript: Form Validation</h1>
+
+    <!--  <form method="post" action="../../lecs/php/echoall.php" id="submitAction">-->
+    <form method="post" action="http://mylinux.langara.bc.ca/~bgreen/201510/2030.001/lecs/php/echoall.php" id="submitAction">
+
+        <p>
+            X Offset:
+            <br>
+            <input type="text" name="xval">
+        </p>
+
+        <p>
+            Y Offset:
+            <br>
+            <input type="text" name="yval">
+        </p>
+
+        <p>
+            Phone Number:
+            <br>
+            <input type="text" name="phone">
+        </p>
+
+        <p>
+            Postal Code:
+            <br>
+            <input type="text" name="postalCode">
+        </p>
+
+        <p> What's your favorite type of music?
+            <br>
+            <input type="radio" name="music" value="everything"> a bit of everything
+            <br>
+            <input type="radio" name="music" checked="checked" value="metal"> heavy metal
+            <br>
+            <input type="radio" name="music" value="jazz"> jazz standards
+            <br>
+            <input type="radio" name="music" value="hiphop"> hip hop
+            <br>
+        </p>
+
+
+        <p> What do you want to do this winter?
+            <br>
+            <input type="checkbox" name="winter[]" checked="checked" value="fire"> sit in front of a fire
+            <br>
+            <input type="checkbox" name="winter[]" value="snowboarding"> go snowboarding
+            <br>
+
+            <input type="checkbox" name="winter[]" value="movies"> see lots of movies
+            <br>
+        </p>
+
+        <p> In which country would you prefer to live?
+            <br>
+            <select name="country">
+                <option value="MEX">Mexico</option>
+                <option value="US">USA</option>
+                <option value="CAN" selected="selected">Canada</option>
+
+            </select>
+        </p>
+
+        <p>
+            <input type="submit" name="submit" value="Go!">
+        </p>
+
+    </form>
+
+</body>
+
+</html>

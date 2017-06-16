@@ -1,0 +1,98 @@
+<!DOCTYPE hmtl>
+<html>
+
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" ></script>
+    <script type="text/javascript" src="pizza.js"></script>
+       <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+    
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    
+
+    <style type="text/css">
+        .orange {
+            background-color: orange;
+        }
+        body{
+            margin: 20px;
+        }
+        textarea{
+            overflow:auto;
+            resize:none;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <h1>Peter's Perfect Pizza Parlour</h1>
+
+    <form id="formToValidate">
+
+        <div class="form-group">
+        <label> 
+            Name: 
+            <input type="text" id="clientName" name="clientName" class="form-control">
+        </label><br>
+        </div>
+
+        <div class="form-group">
+            <label>
+            Crust Diameter: 
+            <input type="number" id="size" name="size" class="form-control" placeholder="10,15 or 15 inch only">
+            
+            </label>
+        </div>
+        
+        <div class="radio">
+            Sauce:
+            <label>
+                <input type="radio" id="tomato"  name = "sauce" value="tomato" checked="checked">
+                Tomato
+            </label>
+
+            <label>
+                <input type="radio" id="spicy" name = "sauce" value="spicy">
+                Spicy
+            </label> <br>
+        </div>
+        
+
+        <div class="form-group">
+            <fieldset>  
+                <legend>Toppings</legend>
+                <label>
+                    <select id="toppings" name="toppings" class="form-control" multiple size="5">
+                        <option value="Pepperoni">Pepperoni</option>
+                        <option value="Ham">Ham</option> 
+                        <option value="Italian Sausage">Italian Sausage</option>
+                        <option value="Olives">Olives</option>
+                        <option value="Green Peppers">Green Peppers</option>
+                    </select>
+                    
+                </label><br>
+        
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="cheese" name="cheese"  checked="checked">
+                Extra cheese:
+                    </label>
+                </div>
+                
+                </fieldset>
+        </div>
+ 
+        <input type="button" id="order" value="Order Up!" class="btn btn-default">
+
+    </form>
+
+<p id="output"></p>
+
+</body>
+
+</html>

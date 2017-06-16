@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Student Survey</title>
+    <style>
+        .flashy {
+            font-size: larger;
+            color: pink;
+        }
+        
+        #inputZone {
+            float: left;
+        }
+        
+        #outputZone {
+            float: right;
+            width: 25%;
+        }
+    </style>
+    <script defer type="text/javascript" src="http://api.b246b.ca/scripts/langara.js"></script>
+    <script defer type="text/javascript" src="survey.js"></script>
+</head>
+
+<body>
+
+    <h1>Lab Survey</h1>
+
+    <div id="inputZone">
+        <h2>Text Fields</h2>
+
+        <p>
+            Username:
+            <input type="text" name="uname" id="uname">
+            <br> Password:
+            <input type="password" name="pass" id="pass">
+            <br>
+        </p>
+
+        <h2>Text Area</h2>
+
+        <p> post your comment:
+            <br>
+            <textarea name="comment" cols="80" rows="5" id="comment" placeholder="type your comment here"></textarea>
+        </p>
+
+
+        <h2>Radio Buttons</h2>
+
+        <p> What's your favorite type of music?
+            <br>
+            <input type="radio" name="music" id="r_everything"> a bit of everything
+            <br>
+            <input type="radio" name="music" checked="checked" id="r_metal"> heavy metal
+            <br>
+            <input type="radio" name="music" id="r_jazz"> jazz standards
+            <br>
+            <input type="radio" name="music" id="r_hiphop"> hip hop
+            <br>
+        </p>
+
+        <h2>Check Boxes</h2>
+
+        <p> What do you want to do this winter?
+            <br>
+            <input type="checkbox" name="winter_fire" checked="checked" id="c_fire"> sit in front of a fire
+            <br>
+            <input type="checkbox" name="winter_snowboard" id="c_snowboard"> go snowboarding
+            <br>
+
+            <input type="checkbox" name="winter_movies" id="c_movies"> see lots of movies
+            <br>
+        </p>
+
+        <h2>Selection List</h2>
+        <p> In which country would you prefer to live?
+            <br>
+            <select name="country" size="4" multiple="MULTIPLE" id="country">
+                <option value="MEX">Mexico</option>
+                <option value="US">USA</option>
+                <option value="CAN" selected="selected">Canada</option>
+
+            </select>
+        </p>
+        <p>
+            <input type="text" id="newitem">
+            <input type="button" value="&lt;- Add Item to List" id="addNewItem">
+        </p>
+
+        <h2>Loop Test</h2>
+
+        <p>List length:
+            <input type="text" id="llength">
+        </p>
+
+        <p>
+            <input type="button" value="Go!" id="GoButton">
+        </p>
+    </div>
+    <div id="outputZone">
+        <h2>The answer is ...</h2>
+        <p id="answer">
+        </p>
+
+        <h2>Here is the list:</h2>
+
+        <ul id="list1">
+            <li></li>
+        </ul>
+
+        <h2 id="go_here">What happens to the heading?</h2>
+        <p>
+            <input type="button" id="changeheading" value="Adjust Heading">
+        </p>
+    </div>
+
+</body>
+
+</html>

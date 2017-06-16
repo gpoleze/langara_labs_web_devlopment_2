@@ -1,0 +1,84 @@
+<!DOCTYPE hmtl>
+<html>
+
+<head>
+    <title>Lab 18 - Quiz Preparation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="lab18.js" defer></script>
+
+    <style>
+        .orange {
+            background-color: orange;
+            color: blue;
+        }
+        
+        .error {
+            background-color: lightcoral;
+            color: white;
+        }
+        
+        .success {
+            background-color: lightgreen;
+/*            color: darkgray;*/
+        }
+
+    </style>
+
+
+
+</head>
+
+<body>
+    <h1>Lab 18 - Quiz Preparation</h1>
+
+    <form id="formToValidate">
+
+        <label for="principal"> Principal</label>
+        <input type="text" id="principal" name="principal" placeholder="For Example 100 or 999.99">
+        <br>
+
+        <label for="interest_rate"> Annual Interest Rate (%): </label>
+        <input type="text" id="interest_rate" name="interest_rate">
+        <br>
+
+        <label>
+             Payments are made: 
+            <select id="payments" name="payments">
+                <option value="annually">Annually</option>
+                <option value="monthly" selected="seleted">Monthly</option>
+                <option value="bi_weekly">Bi-weekly</option>
+                <option value="weekly">Weekly</option>
+            </select>
+        </label><br>
+
+        <label> 
+            Number of Years: 
+            <input type="text" id="years" name="years" maxlength="2">
+        </label><br>
+
+        <fieldset>
+            <legend>Show</legend>
+            <label>
+                <input type="radio" id="show_payment"  name = "show" value="show_payment" checked="checked">
+                Payment Amount
+            </label><br>
+            <label>
+                <input type="radio" id="show_interest" name = "show" value="show_interest">
+                Total interest Rate
+            </label>
+        </fieldset>
+
+        <input type="button" id="calculate" value="calculate Button">
+
+
+        <p id="output"></p>
+
+
+    </form>
+
+
+
+</body>
+
+</html>

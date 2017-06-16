@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)http://mylinux.langara.bc.ca/~bgreen/201710/2030.001/labs/11/pixel.html -->
+<html class="gr__mylinux_langara_bc_ca">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Javascript Image Exercise</title>
+
+</head>
+
+<body data-gr-c-s-loaded="true" data-feedly-mini="yes">
+    <h1>Image Processing</h1>
+
+    <div id="canvas_div">
+        <div>
+            Image URL:
+            <input id="imageURL" type="text" size="30" value="test.jpg">
+            <input id="loadImageButton" type="button" value="Load image">
+            <input id="transformButton" type="button" value="Transform image to ascii">
+        </div>
+
+        <!-- The canvas to hold the image -->
+        <canvas id="canvas" width="500" height="500" style="border:1px solid blue;"></canvas>
+    </div>
+
+    <div>
+        <div>
+            Font size:
+            <input id="textSize" type="range" min="1" max="10" value="2">
+        </div>
+        <!-- The PRE area to hold the ascii data -->
+        <pre id="ascii" style="font-size: 2px; font-family:&#39;Courier New&#39;, Courier, monospace">                
+            </pre>
+    </div>
+
+
+
+    <script type="text/javascript" src="./11_files/langara.js"></script>
+    <script type="text/javascript">
+        var ImageUtils = (function (params) {
+            // ctx is global
+            var ctx;
+
+            var loadImage = function () {
+                canvas = langara.get(params.canvas, true);
+                // ctx is global
+                ctx = canvas.getContext("2d");
+
+                var img = new Image();
+                                img.crossOrigin ='Anonymous';
+                img.src = langara.get(params.imageUrl);
+                side = 0;
+                if (img.width < img.height) {
+                    side = img.width;
+                } else {
+                    side = img.height;
+                }
+                side = (side > 500) ? 500 : side;
+
+                img.onload = function () {
+                    ctx.drawImage(img, 0, 0, side, side, 0, 0, 500, 500);
+                }
+            }
+
+            // 10 levels of colors, from dark to light
+            var colors = "@#%xo;:,. ";
+
+            // The transform method will process each pixel and output the equivalent
+            // character based on the color level.  
+            var transform = function () {
+
+                var pixelArray = ctx.getImageData(0, 0, 500, 500);
+
+                //Variable to store the string with the ascii art
+                var asciiArt = "";
+
+                for (var y = 0; y < 500; y++) {
+                    for (var x = 0; x < 500; x++) {
+                        // Here we extract the RGB value from the image
+                        var i = (y * 500) + x;
+                        var red = pixelArray.data[i * 4];
+                        var green = pixelArray.data[i * 4 + 1];
+                        var blue = pixelArray.data[i * 4 + 2];
+                        var alpha = pixelArray.data[i * 4 + 3];
+
+                        // each of red, green, blue, and alpha will have a value
+                        // between 0 to 255.  Review your notes on the RGBA scheme
+                        // from 1030 if you don't remember what the RGBA means :)
+
+                        // The rest of the tranform function is missing, your
+                        // job is to put this together.
+
+                        // Read the following article for an algorithm on how
+                        // to do the conversion:
+                        // http://www.codeproject.com/Articles/20435/Using-C-To-Generate-ASCII-Art-From-An-Image
+
+                        // Have fun!
+
+                        //Grayscale
+                        var grayScale = parseInt((red + blue + green) / 3);
+
+                        //Transform Colors to ASCII
+                        asciiArt += getGrayShade(red);
+                    }
+                    asciiArt += '\n';
+                }
+                langara.out(asciiArt, params.ascii);
+
+            };
+
+
+            var getGrayShade = function (redValue) {
+                var asciival = " ";
+
+                if (redValue >= 240) {
+                    asciival = colors.charAt[9];
+                } else if (redValue >= 220) {
+                    asciival = colors.charAt[8];
+                } else if (redValue >= 200) {
+                    asciival = colors.charAt[7];
+                } else if (redValue >= 180) {
+                    asciival = colors.charAt[6];
+                } else if (redValue >= 160) {
+                    asciival = colors.charAt[5];
+                } else if (redValue >= 130) {
+                    asciival = colors.charAt[4];
+                } else if (redValue >= 100) {
+                    asciival = colors.charAt[3];
+                } else if (redValue >= 70) {
+                    asciival = colors.charAt[2];
+                } else if (redValue >= 50) {
+                    asciival = colors.charAt[1];
+                } else {
+                    asciival = colors.charAt[0];
+                }
+
+                return asciival;
+            }
+
+
+            // Allow slider to change the font size, "zooming the image"
+            var zooming = function () {
+                // Missing implementation:
+                // Try to change the font size of the slider div here
+                console.warn("Zooming not implemented yet!");
+            };
+
+            // Attaching events to buttons and sliders
+            var registerHandlers = function () {
+                langara.registerEventHandler(params.loadImageButton, 'click', loadImage);
+                langara.registerEventHandler(params.transformButton, 'click', transform);
+                langara.registerEventHandler(params.slider, 'change', zooming);
+            };
+
+            registerHandlers();
+        })({
+            canvas: "canvas",
+            imageUrl: "imageURL",
+            ascii: "ascii",
+            loadImageButton: "loadImageButton",
+            transformButton: "transformButton",
+            slider: "textSize"
+        });
+    </script>
+
+
+    <div id="feedly-mini" title="feedly Mini tookit"></div>
+</body>
+<object id="1a1abaaa-7b39-90a7-ca9a-ab9a69a698ad" width="0" height="0" type="application/gas-events-cef"></object>
+
+</html>

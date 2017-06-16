@@ -1,0 +1,125 @@
+<!DOCTYPE hmtl>
+<html>
+
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" defer></script>
+    <script type="text/javascript" src="" defer></script>
+    
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        * {
+            max-width: 50vw;
+        }
+        body{
+            margin: 20px;
+        }
+        textarea{
+            overflow:auto;
+            resize:none;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <h1></h1>
+
+    <form>
+
+        <!-- TEXT -->
+        <div class="form-group">
+        <label> 
+            Input_type_text
+            <input type="text" id="" name="" class="form-control">
+        </label><br>
+        </div>
+
+        <!-- TEXT -->
+        <div class="form-group">
+            <label> 
+                Input_type_email
+                <input type="email" id="" name="" class="form-control">
+            </label><br>
+        </div>
+
+        <div class="form-group">
+            <!-- Input_type_range -->
+            <input type="range" id="a" name="a" value="50" width="40" class="form-control">
+            
+            <!-- Input_type_number -->
+            <input type="number" id="b" name="b" value="50" class="form-control">
+        </div>
+
+
+        <!-- TEXT AREA -->
+        <div class="form-group">
+        <label>Text_area
+            <textarea cols="2" rows="2" name="textArea" placeholder="Write something in here" class="form-control" ></textarea>
+        </label>
+        </div>
+
+        <!-- DROP DOWN MENU - SELECT/OPTION -->
+        <div class="form-group">
+            <label>
+                 Drop_Down_Menu
+                <select id="" name="" class="form-control">
+                    <option disabled selected value>Select a option</option>
+                    <option value="1"></option>
+                    <!-- <option value="2" selected="seleted">IF YOU DO NOT WANT AN EMPTY FIRST OPTION</option> -->
+                    <option value="3"></option>
+                    <option value="4"></option>
+                </select>
+            </label><br>
+        </dir>
+
+        <!-- FIELDSET -->
+        <fieldset>
+            <legend>Fieldset</legend>
+        </fieldset>
+        
+        <!-- RADIO BUTTON -->
+        <div class="radio">
+            <label>
+                <input type="radio" id="anyID"  name = "sameName" value="value1" checked="checked">
+                Input_type_radio_value_1
+            </label><br>
+
+            <label>
+                <input type="radio" id="anyOtherID" name = "sameName" value="value2">
+                Input_type_radio_value_2
+            </label> <br>
+        </div>
+
+        <!-- CHECKBOX -->
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="" value="" checked="checked">
+                Input_type_checkbox_value_1:
+            </label>
+        </div>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="" value="">
+                Input_type_checkbox_value_2
+            </label><br>
+        </div>  
+        
+        <input type="button" id="" value="button_name" class="btn btn-default">
+
+
+        <p id="output"></p>
+
+
+    </form>
+
+
+
+</body>
+
+</html>

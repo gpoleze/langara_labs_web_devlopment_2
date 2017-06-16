@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-1.12.2.min.js" integrity="sha256-lZFHibXzMHo3GGeehn1hudTAP3Sc0uKXBXAzHX1sjtk=" crossorigin="anonymous"></script>
+
+    <style>
+        table,
+        map {
+            float: left;
+        }
+        
+        table {
+            width: 60%;
+            padding: 10px;
+            margin: 10px;
+        }
+        
+        map {
+            width: 40%;
+        }
+        
+        th,
+        td {
+            text-align: left;
+        }
+        
+        .odd {
+            background-color: grey;
+        }
+        
+        .even {
+            background-color: DarkGray;
+        }
+        
+        .highlight,
+        #summary,
+        th {
+            background-color: skyblue;
+            font-style: italic;
+        }
+        
+        div {
+            margin: 10px;
+            padding: 10px;
+        }
+
+    </style>
+
+    <script>
+        $(document).ready(
+            function() {
+
+                $.ajaxSetup({
+                    type: "GET",
+                    cache: false
+                });
+
+                $("#find").click(
+                    function() {
+                        var pop = "pop=" + $("#pop").val();
+                        var range = "range=" + $("#range option:selected").val();
+                        var key = "key='cpsc2030'";
+                        var message = pop + "&" + range + "&" + key;
+
+                        var url = "http://api.b246b.ca/scripts/citylookup.php";
+                        console.log("pop: ", pop);
+                        console.log("range: ", range);
+                        console.log("key: ", key);
+                        console.log("message: ", message);
+
+                        $.getJSON(url, message, output);
+                    }
+                );
+
+                function output(data) {
+                    console.log(typeof data);
+                    console.log(data);
+
+                    if (data.length == 0) {
+                        $("#output").html("No data found for this range.");
+                        return;
+                    }
+
+
+                    var content = "";
+                    var summary = ""
+                    $("#output").html(content);
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].closest) {
+                            summary = "Closest: City = " + data[i].city + ", Province = " + data[i].province;
+                            
+                            continue;
+                        }
+                        content += (i % 2 == 0) ? "<tr class=\"odd\">" : "<tr class=\"even\">";
+                        content += "<td>" + data[i].city + "</td>";
+                        content += "<td>" + data[i].province + "</td>";
+                        content += "<td>" + data[i].population + "</td>";
+                        content += "</tr>";
+
+
+
+                    }
+                    $("#output").html(content);
+                    $("#summary").html(summary);
+                }
+            }
+        );
+
+    </script>
+</head>
+
+<body>
+    <h1>Canadian Cities</h1>
+    <div>
+        An API for obtaining information about the largest 100 Canadian cities based on their 2016 populations has been setup for you. You can quickly access the API by going to
+        <a href="http://api.b246b.ca/scripts/citylookup.php">http://api.b246b.ca/scripts/citylookup.php</a> but, you will get back -1, indicating that an error has occurred.
+    </div>
+    <div>
+        This API answers questions of the form: "Return a list of all Canadian cities that have a population of <code>pop</code> &plusmn; <code>range</code>%". For example, the following GET request will return a list of all Canadian cities with a population of 100,000 &plusmn; 10% :
+        <a href="http://api.b246b.ca/scripts/citylookup.php?pop=100000&range=10&key='cpsc2030'">
+		http://api.b246b.ca/scripts/citylookup.php?pop=100000&amp;range=10&amp;key='cpsc2030'
+	    </a>. That is, it will return a list of all cities that have populations between 90,000 and 110,000 people. Note the parameter names and their purposes:
+        <ul>
+            <li><code>pop</code> - the desired population</li>
+            <li><code>range</code> - a percentage plus or minus range of the desired population that is acceptable </li>
+            <li><code>key</code> - an API access key</li>
+        </ul>
+    </div>
+    <div>
+        Using AJAX programming techniques, modify this page so that when the "Find Cities" button is pressed, a list of cities is retrieved and rendered as a "zebra striped" table. The content of the table must be inserted inside the "tbody" section of the HTML. DO NOT MODIFY any of the HTML or the CSS; they are perfect as they are (you can of course move the script section around).
+    </div>
+    <div>
+        In cases where there is no data found by the city lookup script, then simply output the message "No data found for this range." in the table.
+    </div>
+    <div>
+        Finally, exactly one of the cities will contain an extra property called <code>closest</code>, which will be set to true. This city has a population that is closest to the one requested. Output this city's name and province into the <code>summary</code>.
+    </div>
+    <div>
+        <p> BONUS: Display a map of the city that has the <code>closest</code> population using the google maps embed api <a href="https://developers.google.com/maps/documentation/embed/">
+	    https://developers.google.com/maps/documentation/embed/</a>. An example of the API call is included in this HTML file (just uncomment the iframe section). All you have to do is modify the "src" of the iframe using Javascript to point to the correct city after a successful "Find Cities" attempt. Hint: you'll need both the city and province to make the mapping work properly.
+        </p>
+        <p> ADDITIONAL BONUS: Furthermore, certain cities within the list <em>may</em> have population values very similar to the requested population (similar is defined as within 2%, but you shouldn't care). If they are similar they will have an extra property <code>similarsize</code>, which will be set to true. Detect these similar sized cities and then apply the CSS
+            <code>highlight</code> styling to it.
+        </p>
+    </div>
+    <div>
+        Population: <input id="pop" type="number" value="100000"> <br/> Range: <select id="range">
+            <option>5</option>
+            <option selected>10</option>
+            <option>15</option>
+        </select>%
+        <button id="find">Find Cities</button>
+    </div>
+
+    <div id="summary">
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Province</th>
+                <th>Population</th>
+            </tr>
+        </thead>
+        <tbody id="output">
+        </tbody>
+    </table>
+
+
+    <!--  If you want to attempt the bonus part you may remove the comment from this portion.	
+	<iframe
+	    id="map"
+	    width="300"
+	    height="240"
+	    frameborder="0" style="border:0"
+	    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBqqdGsaT_t3kn1GaPGFxOmcKh5u7xWQgw&q=north+america" allowfullscreen>
+	</iframe>
+    -->
+</body>
+<script type="text/javascript" src="http://api.b246b.ca/scripts/langara.js"></script>
+<script>
+    // You may place your JavaScript here or up above
+
+</script>
+
+</html>

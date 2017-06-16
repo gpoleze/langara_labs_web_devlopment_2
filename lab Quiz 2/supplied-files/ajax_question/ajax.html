@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <style type="text/css">
+
+          .user-choice
+          {
+              text-align: center;              
+          }
+
+          .user-choice>section
+          {
+              display: inline;
+              border: solid;
+              margin-left: 10px;
+              margin-right: 10px;
+              padding: 5px;
+          }
+          
+          .question
+          {              
+              text-align: center;
+              margin: 10px;
+              font-size: xx-large;
+          }
+            
+            .question::before {
+                content: "Question: "
+            }
+            
+          .submit
+          {
+              margin: 10px;
+              text-align: center;
+          }
+
+          .answer
+          {
+              text-align: center;
+              font-size: x-large;
+          }
+ 
+        </style>
+        
+        <script
+             src="https://code.jquery.com/jquery-1.12.2.js"
+             integrity="sha256-VUCyr0ZXB5VhBibo2DkTVhdspjmxUgxDGaLQx7qb7xY="
+             crossorigin="anonymous"></script>
+       
+        <script type="text/javascript" src="script.js">
+        // You may use either jQuery or Langara.js or raw Javascript for this question.
+        // Insert your code here (or in the script tag way down below).  Don't modify anything else!
+  
+        </script>
+    </head>
+    <body>
+
+        <section class="question">
+        </section>
+        
+        <section class="user-choice">            
+            <section>
+                <i class="fa fa-cc-visa"></i>
+                <input type="radio" name="choice" value="visa">
+            </section>
+            
+            <section>
+                <i class="fa fa-amazon"></i>
+                <input type="radio" name="choice" value="amazon">                
+            </section>
+
+            <section>
+                <i class="fa fa-chrome"></i>
+                <input type="radio" name="choice" value="chrome">                
+            </section>
+
+            <section>
+                <i class="fa fa-facebook"></i>
+                <input type="radio" name="choice" value="facebook">                
+            </section>
+
+            <section>
+                <i class="fa fa-drupal"></i>
+                <input type="radio" name="choice" value="drupal">                
+            </section>
+            
+        </section>
+
+        <section class="submit">
+            <input id="submit" type="button" value="submit">
+        </section>
+
+        <section class="answer">
+        </section>
+    </body>
+    <script type="text/javascript" src="http://api.b246b.ca/scripts/langara.js"></script>
+    <script type="text/javascript">
+        
+    // Alternatively you may insert your code here.
+        
+    </script>
+</html>

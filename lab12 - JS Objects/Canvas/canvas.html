@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Lab 12: Canvas</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script defer type="text/javascript" src="physics.js">
+    </script>
+    <script defer type="text/javascript" src="canvas.js"></script>
+    <style>
+        canvas {
+            border: 1px solid blue;
+        }
+        
+        div {
+            border: 1px solid blue;
+            max-width: 500px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Lab 12: Canvas</h1>
+
+    <h2>Controls</h2>
+    <div>
+        <span>x:<input type="text" size="3" value="100" id="xInitial"></span>
+        <span>y:<input type="text" size="3" value="100" id="yInitial"></span>
+        <span>Radius:<input type="text" size="3" value="50" id="radiusInitial"></span>
+        <span>Border:<input type="color" size="7" value="#00FF00" id="borderColor"></span>
+        <span>Width:<input type="text" size="2" value="5" id="borderWidth"></span>
+        <span>Fill:<input type="color" size="7" value="#0000FF" id="fillColor"></span>
+        <br>
+        <input type="button" value="Clear" id="clear">
+        <input type="button" value="Draw Static" id="drawStatic">
+        <input type="button" value="Draw Random" id="drawRandom">
+        <input type="button" value="Free Fall" id="falling">
+        <input type="button" value="Move Down" id="moveDown">
+
+
+    </div>
+
+    <br>
+
+    <canvas id="myCanvas" width="500px" height="500">
+        Your browser does not support HTML5 Canvas
+    </canvas>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+body {
+    background-color: aqua;
+}
+
+#nav {
+    float: right;
+    list-style: none;
+    background-color: greenyellow;
+    margin: 0 0 30px 0;
+    padding: 0;
+}
+
+#nav > li {
+    display: inline;
+    border-width: 0 3px;
+    border-style: solid;
+    border-color: blue;
+    padding: 0 20px;
+}
+
+a::after {
+    content: url("../header-link.gif");
+}
+
+p + ul {
+    background-color: blue;
+    border-width: 5px 0;
+    border-style: dashed;
+    border-color: gray;
+}
+
+.sidenote > ul > li > ul > li {
+    background-color: yellow;
+}
+
+#sedsit + ul {
+    color: white;
+}
+
+#sedsit + ul > li {
+    background-color: darkred;
+}
+
+#sedsit + ul > li ul {
+    list-style: lower-roman;
+}
+

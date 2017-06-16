@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<title>Interactive Maps</title>
+<style type="text/css">
+#form1 {
+	padding-left:50px;
+	float:left;
+}
+#map_canvas {
+	width: 500px; 
+	height: 400px;
+	float:left;
+}
+footer p{
+	padding-top: 100px;
+	clear: both;
+}
+</style>
+
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfz5CMq4H13Xesd_nyXu8GI31vz2z3ar4"></script>
+
+<script type="text/javascript" src="http://api.b246b.ca/scripts/langara.js"></script>
+<script type="text/javascript" src="interactivemaps.js"></script>
+</head>
+
+<body>
+<h1>Interactive Maps</h1>
+  <div id="map_canvas" >
+  </div>
+<form id="form1" method="get" action="">
+  <h2>Controls</h2>
+  <p>
+<label>
+<input type="radio" name="Locations" value="w" id="Locations_0" checked="checked" >
+Work</label>
+    <br>
+    <label>
+      <input type="radio" name="Locations" value="h" id="Locations_1">
+      Home</label>
+    <br>
+            <label>
+      <input type="radio" name="Locations" value="b" id="Locations_2">
+      Both</label>
+    <br>
+
+    <input type="button" value="Show Markers" id="myButton">
+  </p>
+</form>
+  
+<footer>
+  <p>The above example was based on and influenced by: </p>
+  <ul>
+    <li><a href="https://developers.google.com/maps/articles/phpsqlajax_v3">Using PHP/MySQL with Google Maps</a></li>
+    <li><a href="https://developers.google.com/maps/documentation/javascript/examples/">Google Map Samples</a></li>
+    <li><a href="http://stackoverflow.com/questions/9626134/google-maps-v3-updating-markers-periodically">Updating Markers Periodically</a></li>
+  </ul>
+</footer>
+</body>
+</html>

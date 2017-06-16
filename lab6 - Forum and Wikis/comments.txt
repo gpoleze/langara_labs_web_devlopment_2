@@ -1,0 +1,14 @@
+ - forum.gabriel.b246b.ca
+ - I have changed two lines in the coulours.css file inside the Modified-CSS theme:
+	- line 7 - the html/body elements background colour to orange
+	 - line 8 - the html/body elements font colours blue
+ - Username:	cpsc2030marker
+ - Password:	cpsc2030marker2017
+
+- wiki.gabriel.b246b.ca
+ - Username:	cpsc2030marker
+ - Password:	cpsc2030marker2017	
+
+- gallery.gabriel.b246b.ca
+ - Username:	cpsc2030marker
+ - Password:	cpsc2030marker2017	

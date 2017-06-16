@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-1.12.2.min.js" integrity="sha256-lZFHibXzMHo3GGeehn1hudTAP3Sc0uKXBXAzHX1sjtk=" crossorigin="anonymous"></script>
+
+    <title>Part IV</title>
+
+    <script>
+        $(document).ready(function() {
+            $("#header").click(function() {
+                $(this).fadeOut(100);
+                $(this).fadeIn(500);
+            });
+
+
+            function draw(w, h) {
+                var output = "";
+
+                for (var row = 1; row <= h; row++) {
+                    for (var col = 1; col <= w; col++)
+                        output += col;
+                    output += "\n";
+                }
+
+                $("pre").html(output);
+            }
+
+            function isValid(w, h) {
+                if (w == 0 || h == 0)
+                    return false;
+
+                if (!w.match(/^(\d)$/) || w < 1 || w > 9)
+                    return false;
+
+                if (!w.match(/^(\d)$/) || h < 2 || h > 15)
+                    return false;
+                return true;
+            }
+
+            $("#draw").click(function() {
+                var w = $("#width").val();
+                var h = $("#height").val();
+
+
+                if (isValid(w, h))
+                    draw(w, h);
+
+
+            });
+
+
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <h1>Fianl JS</h1>
+
+    <form id="form">
+        <p>Height:
+            <input type="text" id="height"> 2-15
+        </p>
+
+        <p>Width:
+            <input type="text" id="width"> 1-9
+        </p>
+
+        <input type="button" value="Draw it!" id="draw">
+
+        <h1 id="header">The Rectangle</h1>
+
+
+    </form>
+    <pre>
+    </pre>
+
+</body>
+
+</html>

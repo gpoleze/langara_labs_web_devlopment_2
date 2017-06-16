@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Langara API</title>
+
+<style>
+article > p {
+	padding-left: 1em;
+}
+article h2 {
+	background-color: gray;
+	margin-top: 4em;
+}
+h1 + h2 {
+	margin-top: .83em;
+}
+article h2::before {
+	content: "Function: ";
+}
+</style>
+<link href="scripts/prism.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="language-javascript">
+<h1><a href="scripts/langara.js">Langara.js</a></h1>
+<p> The <a href="scripts/langara.js">langara.js</a> library consists of a number of simple  functions that allow the developer to interact with the DOM and other form elements from a web page easily.
+  Here is the list of implemented functions: </p>
+<ul>
+<li><a href="#addclass"><code>addClass(DOMelement, classname)</code></a></li>
+<li><a href="#addevent"><code>addEvent(DOMelement, event, handler)</code></a></li>
+<li><a href="#addeventsimple"><code>addEventSimple(DOMelement, event, handler)</code></a></li>
+<li><a href="#getid"><code>get(id [, true])</code></a></li>
+<li><a href="#getelementsbyclass"><code>getElementsByClass(searchClass [, node [, tag]])</code></a></li>
+<li><a href="#hasclass"><code>hasClass(DOMelement, classname)</code></a></li>
+<li><a href="#registereventhandler"><code>registerEventHandler(id, event, handler)</code></a></li>
+<li><a href="#removeclass"><code>removeClass(DOMelement, classname)</code></a></li>
+<li><a href="#removeevent"><code>removeEvent(DOMelement, event, handler)</code></a></li>
+<li><a href="removeeventsimple"><code>removeEventSimple(DOMelement, event, handler)</code></a></li>
+<li><a href="#set"><code>set(id, value)</code></a></li>
+<li><a href="#unregistereventhandler"><code>unregisterEventHandler(id, event, handler)</code></a></li>
+</ul>
+<p>Here is an example of a <a href="examples/calculator.html">webpage</a> that uses several of these functions.</p>
+<article>
+  <h2 id="functionlist"><code>get(id)</code><br>
+  Function: <code>get(id, true)</code></h2>
+<h3>Description:</h3>
+<p>There are two variations of this function. The <code>get(id)</code> function does the &quot;right&quot; thing  when obtaining a value from a DOM element from a given <code>id</code>. The function finds the appropriate DOM object, looks inside it and extracts the value via the appropriate means. The &quot;right&quot; thing depends entirely on the nature of the element itself. </p>
+<ul>
+  <li>If the <code>id</code> refers to a check box, it will return the value of the check box. </li>
+  <li>If it is a select statement, it will return the value of the selected item. </li>
+  <li>If it is a multiple select statement, then an array of selected values is returned. </li>
+  <li>If it is a canvas element, then the object itself is returned.</li>
+  <li>If it is a paragraph, then the inner HTML will be returned.</li>
+</ul>
+<p> When the optional 2nd argument is <code>true</code>, the <code>get</code> function returns the entire DOM object instead of just the value inside it, which allows the programmer to perform further object-oriented operations on it.</p>
+<h3>Errors:</h3>
+<ol>
+  <li>If the <code>id</code> is not a string or doesn't exist, then a reference error is thrown. The developer must deal with this error or the script will terminate.</li>
+</ol>
+<h3>Examples:</h3>
+<pre class="line-numbers">
+<code>// assume selectBoxID refers to a multiple select box
+var selectedOptions = langara.get(&quot;selectBoxID&quot;);
+for (var index in selectedOptions) {
+	// do something with selectedOptions[index]
+}
+    
+var isChecked = langara.get(&quot;checkBoxID&quot;);
+if (isChecked) // do something because the check box was ticked
+
+var paragraph = langara.get(&quot;paragraphID&quot;, true);
+paragraph.style.left = 100px;</code></pre>
+</article>
+<article>
+<h2 id="set"><code>set(id, value)</code></h2>
+<h3>Description:</h3>
+<p> The <code>set</code> function takes an <code>id</code> and <code>value</code> and sets the DOM element represented by that <code>id</code> to that <code>value</code>. It does the obvious &quot;right&quot; thing depending on what the DOM element type is.<br>
+</p>
+<h3>Errors:</h3>
+<ol>
+  <li>If the <code>id</code> is not a string or doesn't exist, then a reference error is thrown. The developer must deal with this error or the script will terminate.</li>
+</ol>
+<h3>Examples: needs more testing and error checking</h3>
+<pre class="line-numbers"><code>langara.set(&quot;paragraphID&quot;, &quot;New content for a paragraph.&quot;);
+
+langara.set();</code>
+</pre>
+</article>
+<article>
+<h2 id="registereventhandler"><code>registerEventHandler(id, event, handler)</code></h2>
+<h3>Description:</h3>
+<p>This function attaches the function <code>handler</code> to the DOM element specified by <code>id</code> for the particular <code>event</code>. When the given <code>event</code> is triggered for the given DOM element specified by the <code>id</code>, the function <code>handler</code> will execute.</p>
+<h3>Errors:</h3>
+<ol>
+  <li>If the <code>id</code> is not a string or doesn't exist, then a reference error is thrown. </li>
+  <li>If the <code>event</code> is not a <code>string</code>, a reference error is thrown.</li>
+  <li>If the <code>handler</code> is not a <code>function</code>, a reference error is thrown.</li>
+</ol>
+<p>For each of these errors, the developer must deal with this error or the script will terminate.</p>
+<h3>Examples:</h3>
+<pre class="line-numbers"><code>var clickMe = function () 
+	{ 
+    	alert(&quot;Ouch! I've been hit.&quot;); 
+   	};
+langara.registerEventHandler(&quot;buttonID&quot;, &quot;click&quot;, clickMe);</code></pre>
+</article>
+<article>
+<h2 id="unregistereventhandler"><code>unregisterEventHandler(id, event, handler)</code></h2>
+<h3>Description:</h3>
+<p>This function removes the function <code>handler</code> from the DOM element specified by <code>id</code> for the particular <code>event</code>. The function <code>handler</code> will no longer execute for the given <code>event</code> on the DOM element specified by  <code>id</code>.</p>
+<h3>Errors:</h3>
+<ol>
+  <li>If the <code>id</code> is not a string or doesn't exist, then a reference error is thrown. </li>
+  <li>If the <code>event</code> is not a <code>string</code>, a reference error is thrown.</li>
+  <li>If the <code>handler</code> is not a <code>function</code>, a reference error is thrown.</li>
+</ol>
+<p>For each of these errors, the developer must deal with this error or the script will terminate.</p>
+<h3>Examples:</h3>
+<pre class="line-numbers"><code>var clickMe = function () 
+	{ 
+    	alert(&quot;Ouch! I've been hit.&quot;); 
+   	};
+langara.unregisterEventHandler(&quot;buttonID&quot;, &quot;click&quot;, clickMe);</code></pre>
+</article>
+<article>
+<h2 id="addeventsimple"><code>addEventSimple(DOMelement, event, handler)</code></h2>
+<h3>Description:</h3>
+<p><code>addEventSimple</code> adds the <code>handler</code> to the given DOMelement, which can be triggered by the <code>event</code>.</p>
+<h3>Errors:</h3>
+<ol>
+  <li>If the <code>DOMelement</code> is <code>null,</code> a reference error is thrown.</li>
+  <li>If the <code>event</code> is not a <code>string</code>, a reference error is thrown.</li>
+  <li>If the <code>handler</code> is not a <code>function</code>, a reference error is thrown.</li>
+</ol>
+<p>For each of these errors, the developer must deal with this error or the script will terminate.</p>
+<h3>Examples:</h3>
+<pre class="line-numbers"><code>var clickMe = function () 
+	{ 
+    	alert(&quot;Ouch! I've been hit.&quot;); 
+   	};
+var someButton = document.createElement(&quot;button&quot;);
+langara.addEventSimple(someButton, &quot;click&quot;, clickMe);</code>
+</pre>
+</article>
+<article>
+<h2 id="removeeventsimple"><code>removeEventSimple(DOMelement, event, handler)</code></h2>
+<h3>Description:</h3>
+<p><code>removeEventSimple</code> removes the <code>handler</code> to the given DOMelement, so it can no longer be triggered by the <code>event</code>.</p>
+<h3>Errors:</h3>
+<ol>
+  <li>If the <code>DOMelement</code> is <code>null,</code> a reference error is thrown.</li>
+  <li>If the <code>event</code> is not a <code>string</code>, a reference error is thrown.</li>
+  <li>If the <code>handler</code> is not a <code>function</code>, a reference error is thrown.</li>
+</ol>
+<p>For each of these errors, the developer must deal with this error or the script will terminate.</p>
+<h3>Examples:</h3>
+<pre class="line-numbers"><code>var clickMe = function () 
+	{ 
+    	alert(&quot;Ouch! I've been hit.&quot;); 
+   	};
+var someButton = document.createElement(&quot;button&quot;); 
+langara.removeEventSimple(someButton, &quot;click&quot;, clickMe);</code></pre>
+</article>
+<article>
+<h2 id="addevent"><code>addEvent(DOMelement, event, handler)</code></h2>
+<h3>Description:</h3>
+<p>This is just an alias for <a href="#addeventsimple"><code>addEventSimple</code></a>; see documentation there.</p>
+<h2 id="removeevent"><code>removeEvent(DOMelement, event, handler)</code></h2>
+<h3>Description:</h3>
+<p>This is just an alias for <a href="#removeeventsimple"><code>removeEventSimple</code></a>; see documentation there.</p>
+<h2 id="addclass"><code>addClass(DOMelement, classname)</code></h2>
+<h3>Description:</h3>
+<p>Adds the <code>classname</code> onto the existing list of class names attached to this <code>DOMelement</code>. If there are multiple classnames already, it will ensure that there is exactly one space between each of the classnames. Extra spaces at the beginning and ending of the entire list are  stripped away.</p>
+<h3>Errors:</h3>
+<ol>
+  <li>If the <code>DOMelement</code> is <code>null,</code> a reference error is thrown.</li>
+  <li>If the <code>classname</code> is not a <code>string</code>, a reference error is thrown.</li>
+</ol>
+<p>For each of these errors, the developer must deal with this error or the script will terminate.</p>
+<h3>Examples:</h3>
+<pre class="line-numbers"><code>var theTable = document.getElementById(&quot;aDataTable&quot;);
+langara.addClass(theTable, &quot;zebraStripes&quot;);</code></pre>
+</article>
+<article>
+<h2 id="removeclass"><code>removeClass(DOMelement, classname)</code></h2>
+<h3>Description:</h3>
+<p>Removes the classname to the DOMelement. If there are multiple classnames remaining attached to this DOMelement, it will ensure that there is exactly one space between the classnames. Extra spaces at the beginning and ending of the entire list are  stripped away.</p>
+<h3>Errors:</h3>
+<ol>
+  <li>If the <code>DOMelement</code> is <code>null,</code> a reference error is thrown.</li>
+  <li>If the <code>classname</code> is not a <code>string</code>, a reference error is thrown.</li>
+</ol>
+<p>For each of these errors, the developer must deal with this error or the script will terminate.</p>
+<h3>Examples:</h3>
+<pre class="line-numbers"><code>var theTable = document.getElementById(&quot;aDataTable&quot;);
+langara.removeClass(theTable, &quot;zebraStripes&quot;);</code></pre>
+</article>
+<article>
+<h2 id="hasclass"><code>hasClass(DOMelement, classname)</code></h2>
+<h3>Description:</h3>
+<p>Takes a <code>DOMelement</code> and determines whether <code>classname</code> is one of the CSS class names attached to it.</p>
+<h3>Errors:</h3>
+<ol>
+  <li>If the <code>DOMelement</code> is <code>null,</code> a reference error is thrown.</li>
+  <li>If the <code>classname</code> is not a <code>string</code>, a reference error is thrown.</li>
+</ol>
+<p>For each of these errors, the developer must deal with this error or the script will terminate.</p>
+<h3>Examples:</h3>
+<pre class="line-numbers"><code>var theTable = document.getElementById(&quot;aDataTable&quot;);
+if ( langara.hasClass(theTable, &quot;zebraStripes&quot;) ) 
+	// then do something because the element has striping.</code></pre>
+</article>
+<article>
+<h2 id="getelementsbyclass"><code>getElementsByClass(searchClass[, node[, tag]])</code></h2>
+<h3>Description:</h3>
+<p>Obtains an HTML collection (ie. array) of all DOM elements that have the <code>searchClass</code> in the list of classnames. Filters may be applied by specifying the <code>node</code>, that is, where in the DOM tree to start  searching, and the <code>tag</code>, the specific type of element to search for. If  <code>node</code> is omitted it is assumed that the entire <code>document</code> will be searched. If  <code>tag</code> is omitted it is assumed that all tags will be searched. </p>
+<p>This function is similar in behaviour to <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.getElementsByClassName">document.getElementsByClassName</a></p>
+<h3>Errors:</h3>
+<ol>
+  <li>If the <code>searchClass</code> is <code>null</code> or not a string, a reference error is thrown.</li>
+  <li>If the <code>node</code> is not an <code>object</code>, a reference error is thrown.</li>
+  <li>If the <code>tag</code> is not a <code>string</code>, a reference error is thrown.</li>
+</ol>
+<p>For each of these errors, the developer must deal with this error or the script will terminate.</p>
+<h3>Examples:</h3>
+<pre class="line-numbers"><code>// get an HTML collection (ie. array) of all DOM elements that match the class red from within the 
+// document no matter what tags they are attached to.
+var theElements = langara.getElementsByClass(&quot;red&quot;);
+
+// identical to above
+var theElements = langara.getElementsByClass(&quot;stripes&quot;, document, &quot;*&quot;);
+
+// get an HTML collection of all DOM elements that match the class stripes which are descendant from all table tags.
+langara.getElementsByClass(&quot;stripes&quot;, document, &quot;table&quot;);
+
+// get an HTML collection of all DOM elements that match the class stripes that are descendant from a particular DOM element.
+var theTable = document.getElementByID(&quot;aTable&quot;);
+var theElements = langara.getElementsByClass(&quot;stripes&quot;, theTable);
+
+// get an HTML collection of all DOM elements that match the class stripes that are descendant 
+// from a particular DOM element and are td tags.
+var theTable = document.getElementByID(&quot;aTable&quot;);
+var theElements = langara.getElementsByClass(&quot;stripes&quot;, theTable, "td");</code></pre>
+</article>
+<script type="text/javascript" src="scripts/prism.js"></script>
+
+</body>
+</html>
